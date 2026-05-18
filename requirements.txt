@@ -1,0 +1,18 @@
+# Data Manipulation
+numpy
+pandas
+
+# Visualization (for notebooks)
+matplotlib
+seaborn
+
+# Machine Learning & Pipelines
+scikit-learn
+
+# Advanced Modeling
+xgboost
+lightgbm
+catboost
+
+# Environment
+jupyter
