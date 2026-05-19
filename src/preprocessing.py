@@ -67,3 +67,18 @@ def impute_statistical_nan(train_df: pd.DataFrame, test_df: pd.DataFrame) -> tup
             )
             
     return X_train, X_test
+
+def tranform_skewed_features(df: pd.DataFrame) -> pd.DataFrame:
+    df_transformed = df.copy()
+
+    ignore_cols = ['Id', 'SalePrice']
+    numeric_cols = [c for c in df_transformed.select_dtypes(include=['float64', 'int64']).columns if c not in ignore_cols]
+
+    skewed_values = df_transformed[numeric_cols].skew()
+    high_skew_cols = skewed_values[abs(skewed_values)> 0.75].index
+
+    for col in high_skew_cols:
+        df_transformed[col] = np.log1p(df_transformed[col])
+
+    return df_transformed
+
