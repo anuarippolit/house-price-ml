@@ -18,4 +18,3 @@ def engineer_features(df: pd.DataFrame) -> pd.DataFrame:
     df_feat['HasPool'] = (df_feat['PoolArea'] > 0).astype(int)
 
     return df_feat
-
